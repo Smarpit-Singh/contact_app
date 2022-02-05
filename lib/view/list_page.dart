@@ -8,11 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ListPage extends StatelessWidget {
+
   final contactsController =
       Get.put(AddContactInList()); //For Using ContactList Data
   final editController = Get.put(
       EditContact()); // For implementing edit functionality on Edit Button
-final validationController = Get.put(ValidationController());
+  final validationController = Get.put(ValidationController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,10 +25,10 @@ final validationController = Get.put(ValidationController());
         child: Obx(() {
           return ListView.builder(
               itemCount: contactsController.contacts.length,
-
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () {
+
                     Get.to(ContactDetail(
                         contact: contactsController.contacts[
                             index])); // On Tap Go to View Detail Page to Show All Element in List

@@ -147,8 +147,15 @@ class ValidationController extends GetxController {
     await postData().then((value) => print(value));
     // if else statement for check user is coming for edit contact or add new contact
     if (editController.isEdit.value == false) {
+      //contactController.addContact(userName, number, fName, mName, address, email);
       contactController.addContact(
-          userName, number, fName, mName, address, email);
+          userName: userName,
+        phoneNo: number,
+        fatherName: fName,
+        motherName: mName,
+        address: address,
+        email: email
+      );
 
       Get.back();
     } else {
@@ -159,7 +166,16 @@ class ValidationController extends GetxController {
         return;
       }
       loginFormKey.currentState!.save();
-     contactController.updateContact(userName, number, fName, mName, email, address, editController.index);
+     //contactController.updateContact(userName, number, fName, mName, email, address, editController.index);
+     contactController.updateContact(
+         userName: userName,
+     fatherName: fName,
+     motherName: mName,
+     email: email,
+     address: address,
+     phoneNo: number,
+     index: editController.index);
+
    Get.back();
     }
   }
